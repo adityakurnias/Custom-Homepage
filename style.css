@@ -3,3 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.search-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
+}
+
+.search-box {
+  width: 16rem;
+  height: 2rem;
+  padding: 8px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  transition: all 300ms;
+}
