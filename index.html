@@ -7,15 +7,19 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="custom-cursor"></div>
+    <div id="custom-cursor" role="none"></div>
     <form onsubmit="search()" class="container" role="form">
-      <div>
-        <h1>
-          <time id="time" ></time>
-        </h1>
-      </div>
+      <h1>
+        <time id="time" role="none"></time>
+      </h1>
       <label id="search-label" for="search-box">Search</label>
-      <input id="search-box" class="search-box" type="search" role="searchbox" required />
+      <input
+        id="search-box"
+        class="search-box"
+        type="search"
+        role="searchbox"
+        required
+      />
     </form>
     <script src="main.js"></script>
   </body>
