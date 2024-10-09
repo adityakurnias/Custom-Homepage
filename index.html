@@ -7,12 +7,14 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <div>
-      <time id="time">
-      </time>
-    </div>
-    <form onsubmit="search()" class="search-container">
-      <input id="search-box" class="search-box" type="text">
+    <div id="custom-cursor"></div>
+    <form onsubmit="search()" class="container">
+      <div>
+        <h1>
+          <time id="time"> </time>
+        </h1>
+      </div>
+      <input id="search-box" class="search-box" type="text" required/>
     </form>
     <script src="main.js"></script>
   </body>
