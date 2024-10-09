@@ -5,6 +5,11 @@
 - Complete The Main Style
 - Style Customization
 - Use Another Search Engine
+    - Google :white_check_mark:
+    - Bing
+    - Yahoo
+    - DuckDuckGo
+    - And More...
 - Implement Responsive Design
 - Add Widgets (e.g., weather, clock, news feed)
 - Bookmark Functionality
