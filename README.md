@@ -20,3 +20,41 @@
 - Set Up a To-Do List (CRUD operations)
 - Favicon Support for bookmarks
 - Animations and Transitions for enhanced UX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###### Long Term project
