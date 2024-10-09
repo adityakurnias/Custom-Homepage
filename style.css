@@ -52,6 +52,10 @@ h1 {
   background-color: aliceblue;
 }
 
+#search-label {
+  display: none;
+}
+
 .search-box:focus {
   width: 18rem;
   height: 2.2rem;
