@@ -1,12 +1,16 @@
-function search() {
-  // Get the value from the search box input
-  const searchBox = document.getElementById("search-box").value;
-  // Base Google search URL
-  const googleSearchUrl = "https://google.com/search?q=";
+// Get the value from the search box input
+const searchBox = document.getElementById("search-box").value;
+// Get Search Engine Frome Select List
+const searchEngine = document.getElementById("search-engine");
 
+searchEngine.addEventListener('change', () => {
+  localStorage.setItem('searchEngine', searchEngine.value)
+})
+
+function search() {
   // Open the search in a new window if search box is not empty
-  if (!searchBox == "") {
-    window.open(`${googleSearchUrl}${searchBox}`);
+  if (searchBox && searchBox !== " ") {
+    window.open(`${searchEngine}${searchBox}`);
   }
 }
 
@@ -50,15 +54,15 @@ document.addEventListener("mousemove", (event) => {
     clearTimeout(cursorTimeout);
 
     // Set the cursor opacity to 1, default 0
-    cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0.3)"
-    cursorElement.style.backdropFilter = "blur(1px)"
-    cursorElement.style.border = "1px solid rgba(255, 255, 255, 0.2)"
+    cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0.3)";
+    cursorElement.style.backdropFilter = "blur(1px)";
+    cursorElement.style.border = "1px solid rgba(255, 255, 255, 0.2)";
 
     // Hide the cursor after 3 second of inactivity
     cursorTimeout = setTimeout(() => {
-      cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0)"
-      cursorElement.style.backdropFilter = "blur(0)"
-    cursorElement.style.border = "1px solid rgba(255, 255, 255, 0)"
+      cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0)";
+      cursorElement.style.backdropFilter = "blur(0)";
+      cursorElement.style.border = "1px solid rgba(255, 255, 255, 0)";
     }, 3000);
   }
 });
@@ -77,37 +81,6 @@ function updateCursorPosition() {
   requestAnimationFrame(updateCursorPosition);
 }
 
-// Function to fetch suggestions from Google
-function getSuggestions(query) {
-  const xhr = new XMLHttpRequest();
-  const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${query}`;
-
-  xhr.open("GET", url, true);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      const suggestions = JSON.parse(xhr.responseText)[1]; // Get suggestions from response
-      displaySuggestions(suggestions); // Call function to display suggestions
-    }
-  };
-  xhr.send();
-}
-
-// Function to display fetched suggestions in the suggestion box
-function displaySuggestions(suggestions) {
-  const suggestionBox = document.getElementById("suggestions");
-  suggestionBox.innerHTML = ""; // Clear previous suggestions
-
-  suggestions.forEach((suggestion) => {
-    const div = document.createElement("div");
-    div.innerHTML = suggestion;
-    div.onclick = () => {
-      document.getElementById("search-box").value = suggestion;
-      suggestionBox.innerHTML = ""; // Clear suggestions on selection
-    };
-    suggestionBox.appendChild(div);
-  });
-}
-
 // Event listener for input change on search box
 document.getElementById("search-box").addEventListener("input", (event) => {
   const query = event.target.value;
@@ -118,8 +91,19 @@ document.getElementById("search-box").addEventListener("input", (event) => {
   }
 });
 
+
+// function saveEngine() {
+//   const engine = localStorage.setItem('searchEngine', searchEngine)
+
+//   if (engine != searchEngine) {
+//     localStorage.setItem('searchEngine', searchEngine)
+//   }
+// }
+
 // Initialize functions when the window loads
 window.onload = () => {
+  // saveEngine()
+
   // Initialize the clock by setting the time immediately
   updateClock();
 

@@ -40,6 +40,14 @@ h1 {
   color: aliceblue;
 }
 
+.search-container {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .search-box {
   width: 8rem;
   padding: 8px;
@@ -61,3 +69,15 @@ h1 {
   height: 2.2rem;
   font-size: large;
 }
+
+#search-engine {
+  border: none;
+  color: aliceblue;
+  background-color: transparent;
+}
+
+/* @media screen and (max-width: 600px) {
+  #custom-cursor {
+    display: none;
+  }
+} */

@@ -12,14 +12,22 @@
       <h1>
         <time id="time" role="none"></time>
       </h1>
-      <label id="search-label" for="search-box">Search</label>
-      <input
-        id="search-box"
-        class="search-box"
-        type="search"
-        role="searchbox"
-        required
-      />
+      <div class="search-container">
+        <label id="search-label" for="search-box">Search</label>
+        <input
+          id="search-box"
+          class="search-box"
+          type="search"
+          role="searchbox"
+          required
+        />
+        <select name="search-engine" id="search-engine">
+          <option value="https://www.google.com/search?q=" >Google</option>
+          <option value="https://www.bing.com/search?q=" >Bing</option>
+          <option value="https://search.yahoo.com/search?q=" >Yahoo</option>
+          <option value="https://duckduckgo.com/?q=" >DuckDuckGo</option>
+        </select>
+      </div>
     </form>
     <script src="main.js"></script>
   </body>

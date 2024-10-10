@@ -4,11 +4,11 @@
 ## Todos
 - Complete The Main Style
 - Style Customization
-- Use Another Search Engine
+- Use Another Search Engine :white_check_mark:
     - Google :white_check_mark:
-    - Bing
-    - Yahoo
-    - DuckDuckGo
+    - Bing :white_check_mark:
+    - Yahoo :white_check_mark:
+    - DuckDuckGo :white_check_mark:
     - And More...
 - Implement Responsive Design
 - Add Widgets (e.g., weather, clock, news feed)
