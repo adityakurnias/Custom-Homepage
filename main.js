@@ -92,17 +92,17 @@ document.getElementById("search-box").addEventListener("input", (event) => {
 });
 
 
-// function saveEngine() {
-//   const engine = localStorage.setItem('searchEngine', searchEngine)
+function loadEngine() {
+  const loadSearchEngine = localStorage.getItem('searchEngine')
 
-//   if (engine != searchEngine) {
-//     localStorage.setItem('searchEngine', searchEngine)
-//   }
-// }
+  if (loadSearchEngine) {
+    searchEngine.value = loadSearchEngine
+  }
+}
 
 // Initialize functions when the window loads
 window.onload = () => {
-  // saveEngine()
+  loadEngine()
 
   // Initialize the clock by setting the time immediately
   updateClock();
