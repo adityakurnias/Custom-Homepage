@@ -3,9 +3,9 @@ const searchBox = document.getElementById("search-box").value;
 // Get Search Engine Frome Select List
 const searchEngine = document.getElementById("search-engine");
 
-searchEngine.addEventListener('change', () => {
-  localStorage.setItem('searchEngine', searchEngine.value)
-})
+searchEngine.addEventListener("change", () => {
+  localStorage.setItem("searchEngine", searchEngine.value);
+});
 
 function search() {
   // Open the search in a new window if search box is not empty
@@ -81,28 +81,19 @@ function updateCursorPosition() {
   requestAnimationFrame(updateCursorPosition);
 }
 
-// Event listener for input change on search box
-document.getElementById("search-box").addEventListener("input", (event) => {
-  const query = event.target.value;
-  if (query) {
-    getSuggestions(query); // Fetch suggestions when there's input
-  } else {
-    document.getElementById("suggestions").innerHTML = ""; // Clear suggestions if input is empty
-  }
-});
-
-
 function loadEngine() {
-  const loadSearchEngine = localStorage.getItem('searchEngine')
+  const loadSearchEngine = localStorage.getItem("searchEngine");
 
+  // Change the default option value to saved value
   if (loadSearchEngine) {
-    searchEngine.value = loadSearchEngine
+    searchEngine.value = loadSearchEngine;
   }
 }
 
 // Initialize functions when the window loads
 window.onload = () => {
-  loadEngine()
+  // Load saved Search Engine
+  loadEngine();
 
   // Initialize the clock by setting the time immediately
   updateClock();

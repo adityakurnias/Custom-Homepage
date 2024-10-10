@@ -15,9 +15,9 @@
 - Bookmark Functionality
 - Dark/Light Mode Toggle
 - User Preferences (save settings)
-- Custom Backgrounds (upload/select)
+- Custom Backgrounds
 - Integrate Social Media Links
-- Set Up a To-Do List (CRUD operations)
+- Set Up a To-Do List
 - Favicon Support for bookmarks
 - Animations and Transitions for enhanced UX
 
