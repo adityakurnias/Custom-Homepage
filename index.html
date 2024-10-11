@@ -2,18 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Homepage</title>
-    <link href="style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Homepage</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="custom-cursor" role="none"></div>
-    <form onsubmit="search()" class="container" role="form">
+    <div id="custom-cursor" role="none" aria-hidden="true"></div>
+    <div class="container">
+      <button id="settingsBtn" class="settings-btn">⚙️</button>
+
+      <h1>Welcome to Your Homepage</h1>
+
       <h1>
         <time id="time" role="none"></time>
       </h1>
-      <div class="search-container">
+      <div id="date" class="date"></div>
+
+      <form onsubmit="search()" class="container" role="form">
         <label id="search-label" for="search-box">Search</label>
+
         <input
           id="search-box"
           class="search-box"
@@ -21,14 +28,37 @@
           role="searchbox"
           required
         />
+        <button>🔍</button>
         <select name="search-engine" id="search-engine">
           <option value="https://www.google.com/search?q=">Google</option>
           <option value="https://www.bing.com/search?q=">Bing</option>
           <option value="https://search.yahoo.com/search?q=">Yahoo</option>
           <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
         </select>
+      </form>
+
+      <div class="shortcuts">
+        <a href="https://www.google.com" class="shortcut">
+          <span>🔍</span>
+          <span>Google</span>
+        </a>
+        <a href="https://github.com" class="shortcut">
+          <span>🐙</span>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.youtube.com" class="shortcut">
+          <span>▶️</span>
+          <span>YouTube</span>
+        </a>
+        <a href="https://twitter.com" class="shortcut">
+          <span>🐦</span>
+          <span>Twitter</span>
+        </a>
       </div>
-    </form>
+
+      <div id="quote" class="quote"></div>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>
