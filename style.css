@@ -1,42 +1,22 @@
 * {
   margin: 0;
   padding: 0;
-  cursor: none;
+  /* cursor: none; */
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.container {
-  text-align: center;
-  padding: 20px;
-  max-width: 800px;
-  width: 100%;
-}
-
 #custom-cursor {
-  top: -10px;
-  left: -10px;
-  width: 20px;
-  height: 20px;
+  top: -15px;
+  left: -15px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  transition: background 200ms ease-in, border 200ms ease-in,
-    backdrop-filter 200ms ease-in;
+  transition: background 200ms ease-in, border 200ms ease-in, backdrop-filter 200ms ease-in;
 }
 
-.container {
+main {
   gap: 1.5rem;
   width: 100vw;
   height: 100vh;
@@ -92,20 +72,14 @@ h1 {
   color: aliceblue;
   background-color: transparent;
 }
-.search-box button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  background-color: white;
-  border-radius: 0 20px 20px 0;
-  cursor: pointer;
-}
 
 .shortcuts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 10px;
+  width: 100%;
+  display: grid;
   margin-bottom: 20px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 100px);
 }
 
 .shortcut {
@@ -129,32 +103,16 @@ h1 {
   margin-bottom: 5px;
 }
 
-.quote {
-  font-style: italic;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.settings-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
 @media (max-width: 600px) {
   .clock {
-    font-size: 2rem;
+      font-size: 2rem;
   }
 
   h1 {
-    font-size: 2rem;
+      font-size: 2rem;
   }
 
   .shortcuts {
-    grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -2,41 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom Homepage</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Homepage</title>
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="custom-cursor" role="none" aria-hidden="true"></div>
-    <div class="container">
-      <button id="settingsBtn" class="settings-btn">⚙️</button>
-
-      <h1>Welcome to Your Homepage</h1>
-
+    <div id="custom-cursor" role="none"></div>
+    <main>
       <h1>
         <time id="time" role="none"></time>
       </h1>
-      <div id="date" class="date"></div>
-
-      <form onsubmit="search()" class="container" role="form">
-        <label id="search-label" for="search-box">Search</label>
-
-        <input
-          id="search-box"
-          class="search-box"
-          type="search"
-          role="searchbox"
-          required
-        />
-        <!-- <button>🔍</button> -->
-        <select name="search-engine" id="search-engine">
-          <option value="https://www.google.com/search?q=">Google</option>
-          <option value="https://www.bing.com/search?q=">Bing</option>
-          <option value="https://search.yahoo.com/search?q=">Yahoo</option>
-          <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
-        </select>
+      <form onsubmit="search()" role="form">
+        <div class="search-container">
+          <label id="search-label" for="search-box">Search</label>
+          <input
+            id="search-box"
+            class="search-box"
+            type="search"
+            role="searchbox"
+            required
+          />
+        </div>
       </form>
-
+      <select name="search-engine" id="search-engine">
+        <option value="https://www.google.com/search?q=">Google</option>
+        <option value="https://www.bing.com/search?q=">Bing</option>
+        <option value="https://search.yahoo.com/search?q=">Yahoo</option>
+        <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+      </select>
       <div class="shortcuts">
         <a href="https://www.google.com" class="shortcut">
           <span>🔍</span>
@@ -55,10 +48,7 @@
           <span>Twitter</span>
         </a>
       </div>
-
-      <div id="quote" class="quote"></div>
-    </div>
-
+    </main>
     <script src="main.js"></script>
   </body>
 </html>
