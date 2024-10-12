@@ -94,5 +94,7 @@ window.onload = () => {
   setInterval(updateClock, 1000);
 
   updateCursorPosition();
-  
+  setTimeout(() => {
+    iDB.getData()
+  }, 300);
 };

@@ -34,6 +34,7 @@ export async function createData(name, domain) {
 
   let request = await objectStore.add(data);
   request.onsuccess = function (event) {
+    getData()
     console.log("Shortcut has been added to your storage");
   };
 
