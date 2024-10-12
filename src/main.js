@@ -75,9 +75,9 @@ function loadEngine() {
   if (loadSearchEngine) searchEngine.value = loadSearchEngine;
 }
 
-function addShort() {
+document.querySelector('button').addEventListener('click', () => {
   iDB.createData()
-}
+})
 
 // Initialize on page load
 window.onload = () => {
