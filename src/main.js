@@ -75,13 +75,12 @@ function loadEngine() {
   if (loadSearchEngine) searchEngine.value = loadSearchEngine;
 }
 
+function addShort() {
+  iDB.createData()
+}
+
 // Initialize on page load
 window.onload = () => {
-  const google = {
-    name: "google",
-    url: "google.com"
-  }
-
   loadEngine();
 
   updateClock();
