@@ -1,3 +1,5 @@
+import * as iDB from "./db.js"
+
 // Get search input value and selected search engine
 const searchBox = document.getElementById("search-box").value;
 const searchEngine = document.getElementById("search-engine");
@@ -26,20 +28,22 @@ function getCurrentTime() {
 // Update clock display
 function updateClock() {
   const timeElement = document.getElementById("time");
-  if (timeElement) timeElement.innerHTML = getCurrentTime();
+  if (timeElement) timeElement.textContent = getCurrentTime();
 }
 
 // Custom cursor logic
 const cursorElement = document.getElementById("custom-cursor");
-let posX = 0, posY = 0;
-let mouseX = 0, mouseY = 0;
+let posX = 0,
+  posY = 0;
+let mouseX = 0,
+  mouseY = 0;
 let cursorTimeout;
 
 // Track mouse movement and hide cursor after inactivity
 document.addEventListener("mousemove", (event) => {
   mouseX = event.clientX;
   mouseY = event.clientY;
-  
+
   if (cursorElement) {
     clearTimeout(cursorTimeout);
     cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0.3)";
@@ -59,7 +63,8 @@ function updateCursorPosition() {
   posX += (mouseX - posX) * 0.2;
   posY += (mouseY - posY) * 0.2;
 
-  if (cursorElement) cursorElement.style.transform = `translate(${posX}px, ${posY}px)`;
+  if (cursorElement)
+    cursorElement.style.transform = `translate(${posX}px, ${posY}px)`;
 
   requestAnimationFrame(updateCursorPosition);
 }
@@ -72,8 +77,15 @@ function loadEngine() {
 
 // Initialize on page load
 window.onload = () => {
+  const google = {
+    name: "google",
+    url: "google.com"
+  }
+
   loadEngine();
+
   updateClock();
   setInterval(updateClock, 1000);
+
   updateCursorPosition();
 };
