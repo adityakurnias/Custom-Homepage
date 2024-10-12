@@ -75,8 +75,11 @@ function loadEngine() {
   if (loadSearchEngine) searchEngine.value = loadSearchEngine;
 }
 
-document.querySelector('button').addEventListener('click', () => {
-  iDB.createData()
+document.getElementById('addShort').addEventListener('click', () => {
+  let name = prompt('Enter Web Name:')
+  let domain = prompt('Enter Web Domain:')
+  
+  iDB.createData(name, domain)
 })
 
 // Initialize on page load

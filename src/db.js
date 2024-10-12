@@ -17,25 +17,27 @@ request.onsuccess = function (event) {
 request.onupgradeneeded = function (event) {
   db = event.target.result;
   let objectStore = db.createObjectStore(storeName, {
-    keyPath: "id",
-    autoIncrement: true,
+    keyPath: "name",
   });
   objectStore.createIndex("name", "name", { unique: false });
-  console.log("Object store created");
 };
 
 // Create data
-export function createData() {
+export function createData(name, domain) {
   let transaction = db.transaction([storeName], "readwrite");
   let objectStore = transaction.objectStore(storeName);
-  let data = { name: "google", domain: "google.com" };
+
+  let data = {
+    name: name,
+    domain: domain,
+  };
 
   let request = objectStore.add(data);
   request.onsuccess = function () {
-    console.log("Data has been added to your database.");
+    console.log("Shortcut has been added to your storage");
   };
 
   request.onerror = function () {
-    console.error("Unable to add data.");
+    console.error("Unable to add shortcut.");
   };
 }
