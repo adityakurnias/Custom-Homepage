@@ -56,7 +56,7 @@ export async function getData() {
             <img src="https://www.google.com/s2/favicons?domain=${item.domain}&sz=48">
             <span>${item.name}</span>
         </a>`
-    });
+    }).join('');
     document.getElementById('shortcuts').innerHTML = res
   };
 }

@@ -96,6 +96,20 @@ h1 {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+#addShort {
+  display: flex;
+  padding: 10px;
+  min-width: 100px;
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .shortcut:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
