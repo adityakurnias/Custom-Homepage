@@ -51,8 +51,13 @@ export async function getData() {
   request.onsuccess = () => {
     let data = request.result; 
     let res = data.map(item => {
-      return  `${item.name} : ${item.domain}`
+      return  `
+        <a class="shortcut" href="${item.domain}">
+            <img src="https://www.google.com/s2/favicons?domain=${item.domain}&sz=48" >
+            <span>${item.name}</span>
+        </a>
+      `
     });
-    console.log(res); 
+    document.getElementById('shortcuts').innerHTML = res
   };
 }
