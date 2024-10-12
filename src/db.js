@@ -23,7 +23,7 @@ request.onupgradeneeded = function (event) {
 };
 
 // Create data
-export function createData(name, domain) {
+export async function createData(name, domain) {
   let transaction = db.transaction([storeName], "readwrite");
   let objectStore = transaction.objectStore(storeName);
 
@@ -32,12 +32,23 @@ export function createData(name, domain) {
     domain: domain,
   };
 
-  let request = objectStore.add(data);
-  request.onsuccess = function () {
+  let request = await objectStore.add(data);
+  request.onsuccess = function (event) {
     console.log("Shortcut has been added to your storage");
   };
 
   request.onerror = function () {
     console.error("Unable to add shortcut.");
   };
+}
+
+export async function getData() {
+    let transaction = db.transaction([storeName], "readonly")
+    let objectStore = transaction.objectStore(storeName)
+    let request = objectStore.getAll()
+
+    request.onsuccess = (e) => {
+        let data = e.target.result
+        console.log(data);
+    }
 }

@@ -82,6 +82,10 @@ document.getElementById('addShort').addEventListener('click', () => {
   iDB.createData(name, domain)
 })
 
+document.querySelector("button").addEventListener('click', () => {
+  iDB.getData()
+})
+
 // Initialize on page load
 window.onload = () => {
   loadEngine();
@@ -90,4 +94,5 @@ window.onload = () => {
   setInterval(updateClock, 1000);
 
   updateCursorPosition();
+  
 };
