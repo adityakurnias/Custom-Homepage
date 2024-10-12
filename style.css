@@ -13,7 +13,8 @@
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  transition: background 200ms ease-in, border 200ms ease-in, backdrop-filter 200ms ease-in;
+  transition: background 200ms ease-in, border 200ms ease-in,
+    backdrop-filter 200ms ease-in;
 }
 
 main {
@@ -103,16 +104,29 @@ h1 {
   margin-bottom: 5px;
 }
 
+.addShort {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 3rem;
+  transition: background-color 0.3s;
+}
+
 @media (max-width: 600px) {
   .clock {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   h1 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .shortcuts {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
