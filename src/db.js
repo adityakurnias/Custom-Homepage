@@ -34,7 +34,7 @@ export async function createData(name, domain) {
 
   let request = await objectStore.add(data);
   request.onsuccess = function (event) {
-    getData()
+    getData();
     console.log("Shortcut has been added to your storage");
   };
 
@@ -44,12 +44,15 @@ export async function createData(name, domain) {
 }
 
 export async function getData() {
-    let transaction = db.transaction([storeName], "readonly")
-    let objectStore = transaction.objectStore(storeName)
-    let request = objectStore.getAll()
+  let transaction = db.transaction([storeName], "readonly");
+  let objectStore = transaction.objectStore(storeName);
+  let request = objectStore.getAll();
 
-    request.onsuccess = (e) => {
-        let data = e.target.result
-        console.log(data);
-    }
+  request.onsuccess = () => {
+    let data = request.result; 
+    let res = data.map(item => {
+      return  `${item.name} : ${item.domain}`
+    });
+    console.log(res); 
+  };
 }
