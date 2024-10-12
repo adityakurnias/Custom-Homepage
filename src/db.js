@@ -33,12 +33,12 @@ export async function createData(name, domain) {
   };
 
   let request = await objectStore.add(data);
-  request.onsuccess = function (event) {
+  request.onsuccess = () => {
     getData();
     console.log("Shortcut has been added to your storage");
   };
 
-  request.onerror = function () {
+  request.onerror = () => {
     console.error("Unable to add shortcut.");
   };
 }
@@ -53,10 +53,9 @@ export async function getData() {
     let res = data.map(item => {
       return  `
         <a class="shortcut" href="${item.domain}">
-            <img src="https://www.google.com/s2/favicons?domain=${item.domain}&sz=48" >
+            <img src="https://www.google.com/s2/favicons?domain=${item.domain}&sz=48">
             <span>${item.name}</span>
-        </a>
-      `
+        </a>`
     });
     document.getElementById('shortcuts').innerHTML = res
   };
