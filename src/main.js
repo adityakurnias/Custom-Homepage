@@ -1,6 +1,6 @@
 import * as iDB from "./db.js";
 
-// Get search input and selected search engine
+// ========== Get search input and selected search engine ===
 const searchBox = document.getElementById("search-box");
 const searchEngine = document.getElementById("search-engine");
 
@@ -22,8 +22,10 @@ function search() {
     console.error("Search query or engine is missing.");
   }
 }
+//============================================================
 
-// Get current time in HH:MM:SS format
+
+// ============ Get current time in HH:MM:SS format ==========
 function getCurrentTime() {
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, "0");
@@ -39,8 +41,10 @@ function updateClock() {
     timeElement.textContent = getCurrentTime();
   }
 }
+//===========================================================
 
-// Custom cursor logic
+
+// ================= Custom cursor logic ====================
 const cursorElement = document.getElementById("custom-cursor");
 let posX = 0,
   posY = 0;
@@ -48,7 +52,7 @@ let mouseX = 0,
   mouseY = 0;
 let cursorTimeout;
 
-// Track mouse movement and hide cursor after inactivity
+//Track mouse movement and hide cursor after inactivity
 document.addEventListener("mousemove", (event) => {
   mouseX = event.clientX;
   mouseY = event.clientY;
@@ -72,8 +76,10 @@ function hideCustomCursor() {
   cursorElement.style.backdropFilter = "blur(0)";
   cursorElement.style.border = "1px solid rgba(255, 255, 255, 0)";
 }
+//=============================================================
 
-// Smooth cursor follow effect
+
+//================= Smooth cursor follow effect ===============
 function updateCursorPosition() {
   posX += (mouseX - posX) * 0.2;
   posY += (mouseY - posY) * 0.2;
@@ -84,8 +90,10 @@ function updateCursorPosition() {
 
   requestAnimationFrame(updateCursorPosition);
 }
+//=============================================================
 
-// Load saved search engine from localStorage
+
+// ====== Load saved search engine from localStorage ==========
 function loadEngine() {
   const loadSearchEngine = localStorage.getItem("searchEngine");
   if (loadSearchEngine && searchEngine) {
@@ -93,10 +101,16 @@ function loadEngine() {
   }
 }
 
-// Add new shortcut functionality
-document.getElementById("addShort").addEventListener("click", () => {
-  const name = prompt("Enter Web Name:");
-  const domain = prompt("Enter Web Domain:");
+//============================================================
+
+
+// =========== Add new shortcut functionality ================
+const form = document.getElementById("shortcutSect");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const domain = document.getElementById("domain").value;
 
   if (name && domain) {
     iDB.createData(name, domain);
@@ -104,6 +118,10 @@ document.getElementById("addShort").addEventListener("click", () => {
     console.error("Name or Domain cannot be empty.");
   }
 });
+
+// ===========================================================
+
+
 
 window.onload = () => {
   loadEngine();
