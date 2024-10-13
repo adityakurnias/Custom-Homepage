@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Homepage</title>
     <link href="style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
   <body>
     <aside>
+      <i id="close" class="ph ph-x"></i>
       <section class="ShortcutSect">
         <form id="shortcutSect"  >
           <input type="text" name="name" id="name">
@@ -19,6 +20,7 @@
     </aside>
     <div id="custom-cursor" role="none"></div>
     <main>
+      <i id="open" class="ph ph-gear"></i>
       <h1>
         <time id="time" role="none"></time>
       </h1>
@@ -44,9 +46,6 @@
 
 
       </div>
-      <!-- <div id="addShort">
-        <i class="mdi mdi-plus"></i>
-      </div> -->
     </main>
     <script type="module" src="./src/main.js"></script>
   </body>

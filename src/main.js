@@ -122,6 +122,19 @@ form.addEventListener("submit", (e) => {
 // ===========================================================
 
 
+// =============== Side bar =============================
+const close = document.getElementById('close')
+const open = document.getElementById('open')
+const sidebar = document.querySelector('aside')
+
+open.addEventListener('click', () => {
+  sidebar.style.width = '280px'
+  open.style.opacity
+})
+
+close.addEventListener('click', () => {
+  sidebar.style.width = '0'
+})
 
 window.onload = () => {
   loadEngine();

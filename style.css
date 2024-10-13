@@ -5,11 +5,16 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+}
+
 #custom-cursor {
   top: -15px;
   left: -15px;
   width: 30px;
   height: 30px;
+  z-index: 1000;
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
@@ -21,6 +26,7 @@ main {
   width: 100vw;
   height: 100vh;
   display: flex;
+  position: relative;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -62,7 +68,7 @@ h1 {
 }
 
 .search-box:focus {
-  width: 18rem;
+  width: 100%;
   height: 2.2rem;
   font-size: large;
 }
@@ -117,6 +123,27 @@ h1 {
 .shortcut span:first-child {
   font-size: 2rem;
   margin-bottom: 5px;
+}
+
+aside {
+  width: 0;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #222;
+  transition: width 0.3s;
+}
+
+.ph-x {
+  right: 0;
+  font-size: 2rem;
+  color: aliceblue;
+  position: absolute;
+}
+
+.ph-gear {
+  font-size: 2rem;
+  color: aliceblue;
 }
 
 @media (max-width: 600px) {
