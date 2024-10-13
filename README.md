@@ -16,7 +16,7 @@
 - Dark/Light Mode Toggle
 - User Preferences (save settings)
 - Custom Backgrounds
-- Shortcuts link (Alost Done 50%)
+- Shortcuts link (Almost Done 50%)
 - Set Up a To-Do List
 - Favicon Support for bookmarks
 - Animations and Transitions for enhanced UX

@@ -1,18 +1,25 @@
-import * as iDB from "./db.js"
+import * as iDB from "./db.js";
 
-// Get search input value and selected search engine
-const searchBox = document.getElementById("search-box").value;
+// Get search input and selected search engine
+const searchBox = document.getElementById("search-box");
 const searchEngine = document.getElementById("search-engine");
 
 // Save selected search engine in localStorage
-searchEngine.addEventListener("change", () => {
-  localStorage.setItem("searchEngine", searchEngine.value);
-});
+if (searchEngine) {
+  searchEngine.addEventListener("change", () => {
+    localStorage.setItem("searchEngine", searchEngine.value);
+  });
+}
 
 // Search if input is not empty
 function search() {
-  if (searchBox.trim()) {
-    window.open(`${searchEngine}${searchBox}`);
+  const query = searchBox ? searchBox.value.trim() : "";
+  const engine = searchEngine ? searchEngine.value : "";
+
+  if (query && engine) {
+    window.open(`${engine}${query}`);
+  } else {
+    console.error("Search query or engine is missing.");
   }
 }
 
@@ -28,7 +35,9 @@ function getCurrentTime() {
 // Update clock display
 function updateClock() {
   const timeElement = document.getElementById("time");
-  if (timeElement) timeElement.textContent = getCurrentTime();
+  if (timeElement) {
+    timeElement.textContent = getCurrentTime();
+  }
 }
 
 // Custom cursor logic
@@ -46,25 +55,32 @@ document.addEventListener("mousemove", (event) => {
 
   if (cursorElement) {
     clearTimeout(cursorTimeout);
-    cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0.3)";
-    cursorElement.style.backdropFilter = "blur(1px)";
-    cursorElement.style.border = "1px solid rgba(255, 255, 255, 0.2)";
+    showCustomCursor();
 
-    cursorTimeout = setTimeout(() => {
-      cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0)";
-      cursorElement.style.backdropFilter = "blur(0)";
-      cursorElement.style.border = "1px solid rgba(255, 255, 255, 0)";
-    }, 3000);
+    cursorTimeout = setTimeout(hideCustomCursor, 3000);
   }
 });
+
+function showCustomCursor() {
+  cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0.3)";
+  cursorElement.style.backdropFilter = "blur(1px)";
+  cursorElement.style.border = "1px solid rgba(255, 255, 255, 0.2)";
+}
+
+function hideCustomCursor() {
+  cursorElement.style.backgroundColor = "rgba(137, 43, 226, 0)";
+  cursorElement.style.backdropFilter = "blur(0)";
+  cursorElement.style.border = "1px solid rgba(255, 255, 255, 0)";
+}
 
 // Smooth cursor follow effect
 function updateCursorPosition() {
   posX += (mouseX - posX) * 0.2;
   posY += (mouseY - posY) * 0.2;
 
-  if (cursorElement)
+  if (cursorElement) {
     cursorElement.style.transform = `translate(${posX}px, ${posY}px)`;
+  }
 
   requestAnimationFrame(updateCursorPosition);
 }
@@ -72,26 +88,32 @@ function updateCursorPosition() {
 // Load saved search engine from localStorage
 function loadEngine() {
   const loadSearchEngine = localStorage.getItem("searchEngine");
-  if (loadSearchEngine) searchEngine.value = loadSearchEngine;
+  if (loadSearchEngine && searchEngine) {
+    searchEngine.value = loadSearchEngine;
+  }
 }
 
-document.getElementById('addShort').addEventListener('click', () => {
-  let name = prompt('Enter Web Name:')
-  let domain = prompt('Enter Web Domain:')
-  
-  iDB.createData(name, domain)
-})
+// Add new shortcut functionality
+document.getElementById("addShort").addEventListener("click", () => {
+  const name = prompt("Enter Web Name:");
+  const domain = prompt("Enter Web Domain:");
 
-// Initialize on page load
+  if (name && domain) {
+    iDB.createData(name, domain);
+  } else {
+    console.error("Name or Domain cannot be empty.");
+  }
+});
+
 window.onload = () => {
   loadEngine();
 
   updateClock();
-  setInterval(updateClock, 1000);
+  setInterval(updateClock, 1000); // Update clock every second
 
-  updateCursorPosition();
+  updateCursorPosition(); // Start cursor animation
 
   setTimeout(() => {
-    iDB.getData()
+    iDB.getData(); // Load shortcuts after slight delay
   }, 300);
 };
