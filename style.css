@@ -128,14 +128,20 @@ h1 {
 aside {
   width: 0;
   height: 100vh;
+  display: flex;
+  padding-top: 2%;
   overflow: hidden;
   position: relative;
+  align-items: center;
+  flex-direction: column;
+  /* justify-content: center; */
   background-color: #222;
   transition: width 0.3s ease-in-out;
 }
 
 .ph-x {
   top: 10px;
+  z-index: 10;
   right: 10px;
   font-size: 2rem;
   color: aliceblue;
@@ -145,11 +151,38 @@ aside {
 .ph-gear {
   top: 10px;
   left: 10px;
+  z-index: 10;
   font-size: 2rem;
   position: absolute;
   color: aliceblue;
   transition: opacity 0.3s ease-in-out;
 }
+
+#shortcutSect {
+  display: flex;
+  flex-direction: column;
+}
+
+#shortcutSect input[type='text'] {
+  width: 100%;
+  border: none;
+  padding: 5px;
+  outline: none;
+  color: aliceblue;
+  background-color: transparent;
+}
+
+#shortcutSect input[type='submit'] {
+  border: none;
+  color: aliceblue;
+  
+  background-color: transparent;
+}
+
+.shortcutSect input::placeholder {
+  color: aliceblue;
+}
+
 
 @media (max-width: 600px) {
   .clock {
