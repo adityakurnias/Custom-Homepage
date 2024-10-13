@@ -109,11 +109,13 @@ const form = document.getElementById("shortcutSect");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = document.getElementById("name").value;
-  const domain = document.getElementById("domain").value;
+  let name = document.getElementById("name");
+  let domain = document.getElementById("domain");
 
-  if (name && domain) {
-    iDB.createData(name, domain);
+  if (name.value && domain.value) {
+    iDB.createData(name.value, domain.value);
+    name.value = ""
+    domain.value = ""
   } else {
     console.error("Name or Domain cannot be empty.");
   }
@@ -129,11 +131,12 @@ const sidebar = document.querySelector('aside')
 
 open.addEventListener('click', () => {
   sidebar.style.width = '280px'
-  open.style.opacity
+  open.style.opacity = '0'
 })
 
 close.addEventListener('click', () => {
   sidebar.style.width = '0'
+  open.style.opacity = '1'
 })
 
 window.onload = () => {

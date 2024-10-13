@@ -54,7 +54,7 @@ export function getData() {
     let res = data
       .map((item) => {
         return `
-        <a class="shortcut" href="${item.domain}">
+        <a class="shortcut" href="https://${item.domain}">
             <img src="https://www.google.com/s2/favicons?domain=${item.domain}&sz=48">
             <span>${item.name}</span>
         </a>`;

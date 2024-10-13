@@ -131,19 +131,24 @@ aside {
   overflow: hidden;
   position: relative;
   background-color: #222;
-  transition: width 0.3s;
+  transition: width 0.3s ease-in-out;
 }
 
 .ph-x {
-  right: 0;
+  top: 10px;
+  right: 10px;
   font-size: 2rem;
   color: aliceblue;
   position: absolute;
 }
 
 .ph-gear {
+  top: 10px;
+  left: 10px;
   font-size: 2rem;
+  position: absolute;
   color: aliceblue;
+  transition: opacity 0.3s ease-in-out;
 }
 
 @media (max-width: 600px) {
