@@ -11,22 +11,24 @@
     <aside>
       <i id="close" class="ph ph-x"></i>
       <section class="ShortcutSect">
-        <form id="shortcutSect"  >
-          <input type="text" name="name" id="name" placeholder="Web Name">
-          <input type="text" name="domain" id="domain" placeholder="Web URL">
-          <input type="submit" value="Add Shortcut">
+        <form id="shortcutSect">
+          <input type="text" name="name" id="name" placeholder="Web Name" />
+          <input type="text" name="domain" id="domain" placeholder="Web URL" />
+          <input type="submit" value="Add Shortcut" />
         </form>
       </section>
     </aside>
     <div id="custom-cursor" role="none"></div>
     <main>
       <i id="open" class="ph ph-gear"></i>
-      <h1>
-        <time id="time" role="none"></time>
-      </h1>
-      <h2>
-        <time id="date" role="none"></time>
-      </h2>
+      <div class="date-wraper">
+        <h1>
+          <time id="time" role="none"></time>
+        </h1>
+        <h2>
+          <time id="date" role="none"></time>
+        </h2>
+      </div>
       <form onsubmit="search()" role="form">
         <div class="search-container">
           <label id="search-label" for="search-box">Search</label>
@@ -45,10 +47,7 @@
         <option value="https://search.yahoo.com/search?q=">Yahoo</option>
         <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
       </select>
-      <div class="shortcuts" id="shortcuts">
-
-
-      </div>
+      <div class="shortcuts" id="shortcuts"></div>
     </main>
     <script type="module" src="./src/main.js"></script>
   </body>
