@@ -24,25 +24,21 @@ function search() {
 }
 //============================================================
 
-
-// ============ Get current time in HH:MM:SS format ==========
-function getCurrentTime() {
-  const now = new Date();
-  const hours = now.getHours().toString().padStart(2, "0");
-  const minutes = now.getMinutes().toString().padStart(2, "0");
-  const seconds = now.getSeconds().toString().padStart(2, "0");
-  return `${hours}:${minutes}:${seconds}`;
-}
+// ============ Get current time ==========
 
 // Update clock display
 function updateClock() {
+  const now = new Date();
+
   const timeElement = document.getElementById("time");
-  if (timeElement) {
-    timeElement.textContent = getCurrentTime();
+  const dateElement = document.getElementById("date");
+
+  if (timeElement && dateElement) {
+    timeElement.textContent = now.toLocaleTimeString();
+    dateElement.textContent = now.toDateString();
   }
 }
 //===========================================================
-
 
 // ================= Custom cursor logic ====================
 const cursorElement = document.getElementById("custom-cursor");
@@ -78,7 +74,6 @@ function hideCustomCursor() {
 }
 //=============================================================
 
-
 //================= Smooth cursor follow effect ===============
 function updateCursorPosition() {
   posX += (mouseX - posX) * 0.2;
@@ -92,7 +87,6 @@ function updateCursorPosition() {
 }
 //=============================================================
 
-
 // ====== Load saved search engine from localStorage ==========
 function loadEngine() {
   const loadSearchEngine = localStorage.getItem("searchEngine");
@@ -102,7 +96,6 @@ function loadEngine() {
 }
 
 //============================================================
-
 
 // =========== Add new shortcut functionality ================
 const form = document.getElementById("shortcutSect");
@@ -114,8 +107,8 @@ form.addEventListener("submit", (e) => {
 
   if (name.value && domain.value) {
     iDB.createData(name.value, domain.value);
-    name.value = ""
-    domain.value = ""
+    name.value = "";
+    domain.value = "";
   } else {
     console.error("Name or Domain cannot be empty.");
   }
@@ -123,21 +116,20 @@ form.addEventListener("submit", (e) => {
 
 // ===========================================================
 
-
 // =============== Side bar =============================
-const close = document.getElementById('close')
-const open = document.getElementById('open')
-const sidebar = document.querySelector('aside')
+const close = document.getElementById("close");
+const open = document.getElementById("open");
+const sidebar = document.querySelector("aside");
 
-open.addEventListener('click', () => {
-  sidebar.style.width = '280px'
-  open.style.opacity = '0'
-})
+open.addEventListener("click", () => {
+  sidebar.style.width = "280px";
+  open.style.opacity = "0";
+});
 
-close.addEventListener('click', () => {
-  sidebar.style.width = '0'
-  open.style.opacity = '1'
-})
+close.addEventListener("click", () => {
+  sidebar.style.width = "0";
+  open.style.opacity = "1";
+});
 
 window.onload = () => {
   loadEngine();
