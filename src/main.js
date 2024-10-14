@@ -14,7 +14,7 @@ if (searchEngine) {
 // Search if input is not empty
 function search() {
   const query = searchBox ? searchBox.value.trim() : "";
-  const engine = searchEngine ? searchEngine.value : "";
+  const engine = searchEngine ? searchEngine.value : "https://google.com/search?q=";
 
   if (query && engine) {
     window.open(`${engine}${query}`);
