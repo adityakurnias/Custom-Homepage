@@ -10,7 +10,7 @@
       href="./assets/img/house-simple.svg"
       type="image/x-icon"
     />
-    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script type="module" src="/src/main.js" defer></script>
   </head>
   <body>
@@ -35,7 +35,12 @@
           <time id="date" role="none"></time>
         </h2>
       </div>
-      <form class="search-container" id="search-container" role="form">
+      <form
+        class="search-container"
+        id="search-container"
+        method="post"
+        role="form"
+      >
         <label id="search-label" for="search-box">Search</label>
         <input
           id="search-box"
@@ -44,7 +49,6 @@
           role="searchbox"
           required
         />
-        <!-- <input type="submit" value="Search" /> -->
       </form>
       <select name="search-engine" id="search-engine">
         <option value="https://www.google.com/search?q=">Google</option>

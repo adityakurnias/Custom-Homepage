@@ -7,6 +7,12 @@ searchEngineList.addEventListener("change", () => {
   localStorage.setItem("searchEngine", searchEngineList.value);
 });
 
+function validateDomain(string) {
+  const urlRegex = /^(((http|https):\/\/|)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?)$/;
+
+  const found = string.match(urlRegex)
+  return found ? found[0] : false
+}
 
 function loadEngine() {
   const loadSearchEngine = localStorage.getItem("searchEngine");
@@ -18,13 +24,17 @@ function loadEngine() {
 function search() {
   let query = searchBox.value
   let engine = searchEngineList.value
-  if (query) {
+  if (validateDomain(query)) {
+    window.open(validateDomain(query))
+  } else if (query) {
     window.open(`${engine}${query}`)
+  }
+  else {
+    alert("Missing query")
   }
 }
 
-document.getElementById("search-container").addEventListener("submit", (e) => {
-  // e.preventDefault();
+document.getElementById("search-container").addEventListener("submit",() => {
   search();
 });
 
