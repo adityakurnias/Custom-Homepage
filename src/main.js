@@ -1,15 +1,12 @@
 import * as iDB from "./db.js";
 
-// ========== Get search input and selected search engine ===
 let searchBox = document.getElementById("search-box").value;
 let searchEngineList = document.getElementById("search-engine");
 
-// Save selected search engine in localStorage
 searchEngineList.addEventListener("change", () => {
   localStorage.setItem("searchEngine", searchEngineList.value);
 });
 
-// ====== Load saved search engine from localStorage ==========
 
 function loadEngine() {
   const loadSearchEngine = localStorage.getItem("searchEngine");
@@ -17,8 +14,6 @@ function loadEngine() {
     searchEngineList.value = loadSearchEngine;
   }
 }
-
-//============================================================
 
 function search() {
   if (searchBox) {
@@ -31,17 +26,11 @@ function search() {
   }
 }
 
-// Add event listener to the form for search submission
 document.getElementById("search-form").addEventListener("submit", (e) => {
   e.preventDefault();
   search();
 });
 
-//============================================================
-
-// ============ Get current time ==========
-
-// Update clock display
 function updateClock() {
   const now = new Date();
 
@@ -53,9 +42,7 @@ function updateClock() {
     dateElement.textContent = now.toDateString();
   }
 }
-//===========================================================
 
-// ================= Custom cursor logic ====================
 const cursorElement = document.getElementById("custom-cursor");
 let posX = 0,
   posY = 0;
@@ -63,7 +50,6 @@ let mouseX = 0,
   mouseY = 0;
 let cursorTimeout;
 
-//Track mouse movement and hide cursor after inactivity
 document.addEventListener("mousemove", (event) => {
   mouseX = event.clientX;
   mouseY = event.clientY;
@@ -87,9 +73,7 @@ function hideCustomCursor() {
   cursorElement.style.backdropFilter = "blur(0)";
   cursorElement.style.border = "1px solid rgba(255, 255, 255, 0)";
 }
-//=============================================================
 
-//================= Smooth cursor follow effect ===============
 function updateCursorPosition() {
   posX += (mouseX - posX) * 0.2;
   posY += (mouseY - posY) * 0.2;
@@ -100,9 +84,7 @@ function updateCursorPosition() {
 
   requestAnimationFrame(updateCursorPosition);
 }
-//=============================================================
 
-// =========== Add new shortcut functionality ================
 const form = document.getElementById("shortcutSect");
 
 form.addEventListener("submit", (e) => {
@@ -119,9 +101,6 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-// ===========================================================
-
-// =============== Side bar =============================
 const close = document.getElementById("close");
 const open = document.getElementById("open");
 const sidebar = document.querySelector("aside");
