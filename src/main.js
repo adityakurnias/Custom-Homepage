@@ -1,6 +1,6 @@
 import * as iDB from "./db.js";
 
-let searchBox = document.getElementById("search-box").value;
+let searchBox = document.getElementById("search-box");
 let searchEngineList = document.getElementById("search-engine");
 
 searchEngineList.addEventListener("change", () => {
@@ -16,18 +16,15 @@ function loadEngine() {
 }
 
 function search() {
-  if (searchBox) {
-    const query = searchBox;
-    const engine = searchEngineList.value;
-
-    window.open(`${engine}${query}`);
-  } else {
-    console.error("Search query or engine is missing.");
+  let query = searchBox.value
+  let engine = searchEngineList.value
+  if (query) {
+    window.open(`${engine}${query}`)
   }
 }
 
-document.getElementById("search-form").addEventListener("submit", (e) => {
-  e.preventDefault();
+document.getElementById("search-container").addEventListener("submit", (e) => {
+  // e.preventDefault();
   search();
 });
 
