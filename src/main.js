@@ -25,7 +25,7 @@ function search() {
   let query = searchBox.value
   let engine = searchEngineList.value
   if (validateDomain(query)) {
-    window.open(validateDomain(query))
+    window.open('https://' + validateDomain(query))
   } else if (query) {
     window.open(`${engine}${query}`)
   }
