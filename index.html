@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Homepage</title>
     <link href="style.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="./assets/img/house-simple.svg" type="image/x-icon">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link
+      rel="shortcut icon"
+      href="./assets/img/house-simple.svg"
+      type="image/x-icon"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <script type="module" src="/src/main.js" defer></script>
   </head>
   <body>
     <aside>
@@ -30,17 +35,16 @@
           <time id="date" role="none"></time>
         </h2>
       </div>
-      <form onsubmit="search()" role="form">
-        <div class="search-container">
-          <label id="search-label" for="search-box">Search</label>
-          <input
-            id="search-box"
-            class="search-box"
-            type="search"
-            role="searchbox"
-            required
-          />
-        </div>
+      <form class="search-container" id="search-form" role="form">
+        <label id="search-label" for="search-box">Search</label>
+        <input
+          id="search-box"
+          class="search-box"
+          type="search"
+          role="searchbox"
+          required
+        />
+        <!-- <input type="submit" value="Search" /> -->
       </form>
       <select name="search-engine" id="search-engine">
         <option value="https://www.google.com/search?q=">Google</option>
@@ -50,6 +54,5 @@
       </select>
       <div class="shortcuts" id="shortcuts"></div>
     </main>
-    <script type="module" src="./src/main.js"></script>
   </body>
 </html>

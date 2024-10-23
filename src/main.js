@@ -1,27 +1,42 @@
 import * as iDB from "./db.js";
 
 // ========== Get search input and selected search engine ===
-const searchBox = document.getElementById("search-box");
-const searchEngine = document.getElementById("search-engine");
+let searchBox = document.getElementById("search-box").value;
+let searchEngineList = document.getElementById("search-engine");
 
 // Save selected search engine in localStorage
-if (searchEngine) {
-  searchEngine.addEventListener("change", () => {
-    localStorage.setItem("searchEngine", searchEngine.value);
-  });
+searchEngineList.addEventListener("change", () => {
+  localStorage.setItem("searchEngine", searchEngineList.value);
+});
+
+// ====== Load saved search engine from localStorage ==========
+
+function loadEngine() {
+  const loadSearchEngine = localStorage.getItem("searchEngine");
+  if (loadSearchEngine && searchEngineList) {
+    searchEngineList.value = loadSearchEngine;
+  }
 }
 
-// Search if input is not empty
-function search() {
-  const query = searchBox ? searchBox.value.trim() : "";
-  const engine = searchEngine ? searchEngine.value : "https://google.com/search?q=";
+//============================================================
 
-  if (query && engine) {
+function search() {
+  if (searchBox) {
+    const query = searchBox;
+    const engine = searchEngineList.value;
+
     window.open(`${engine}${query}`);
   } else {
     console.error("Search query or engine is missing.");
   }
 }
+
+// Add event listener to the form for search submission
+document.getElementById("search-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  search();
+});
+
 //============================================================
 
 // ============ Get current time ==========
@@ -86,16 +101,6 @@ function updateCursorPosition() {
   requestAnimationFrame(updateCursorPosition);
 }
 //=============================================================
-
-// ====== Load saved search engine from localStorage ==========
-function loadEngine() {
-  const loadSearchEngine = localStorage.getItem("searchEngine");
-  if (loadSearchEngine && searchEngine) {
-    searchEngine.value = loadSearchEngine;
-  }
-}
-
-//============================================================
 
 // =========== Add new shortcut functionality ================
 const form = document.getElementById("shortcutSect");
