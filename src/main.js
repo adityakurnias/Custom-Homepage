@@ -34,7 +34,8 @@ function search() {
   }
 }
 
-document.getElementById("search-container").addEventListener("submit",() => {
+document.getElementById("search-container").addEventListener("submit", (e) => {
+  e.preventDefault()
   search();
 });
 
