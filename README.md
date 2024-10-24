@@ -4,7 +4,7 @@
 ## Todos
 - Complete The Main Style (10%)
 - Style Customization (2%)
-- Use Another Search Engine (80%) :white_check_mark:
+- Use Another Search Engine (85%) :white_check_mark:
     - Google :white_check_mark:
     - Bing :white_check_mark:
     - Yahoo :white_check_mark:
