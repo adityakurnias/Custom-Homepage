@@ -21,4 +21,4 @@
 - Favicon Support for bookmarks (0%)
 - Animations and Transitions for enhanced UX (8%)
 
-###### Long Term project
+###### Long Term project.
